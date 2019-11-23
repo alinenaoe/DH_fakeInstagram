@@ -15,13 +15,13 @@
             <div class="card-body">
             <h1 class="text-center">Instagram</h1>
             <h5 class="card-title text-center"> Cadastre-se para ver fotos e vídeos dos seus amigos. </h5>
-            <form action="/DH_fakeInstagram/registerUser" method="POST" enctype="multipart/form-data">
+            <form action="/DH_fakeInstagram/register-user" method="POST" enctype="multipart/form-data">
 
                 <div class="form-group">
                     <input type="text" class="form-control bg-light" id="username" name="username" placeholder="Nome de usuário" required>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control bg-light" id="userpassword" name="userpassword" placeholder="Senha" required>
+                    <input type="password" class="form-control bg-light" id="userpassword" name="userpassword" placeholder="Senha" required>
                 </div>
 
                 <div class="form-group">

@@ -26,4 +26,10 @@
             $controller = new PostController();
             $controller->acao($routes);
         break;
+
+        case "register-user":
+            include "controllers/PostController.php";
+            $controller = new PostController();
+            $controller->acao($routes);
+        break;
     }

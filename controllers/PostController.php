@@ -1,6 +1,7 @@
 <?php
 
     include_once "models/Post.php";
+    include_once "models/User.php";
 
     class PostController {
         
@@ -16,9 +17,15 @@
 
                 case "send-post":
                     $this->sendPost();
+                break;
 
                 case "new-user":
                     $this->viewNewUser();
+                break;
+                
+                case "register-user":
+                    $this->registerUser();
+                break;
             }
         }
 
@@ -62,7 +69,24 @@
             include "views/newUser.php";
         }
 
+        private function registerUser() {
+            $username = $_POST['username'];
+            $userpassword = $_POST['userpassword'];
 
+            $fileName = $_FILES["profileimg"]["name"];
+            $tempLink = $_FILES["profileimg"]["tmp_name"];
+            $filePath = "views/img/$fileName";
+            move_uploaded_file($tempLink,$filePath);
+
+            $user = new User();
+            $result = $user->registerUser($username, $userpassword, $filePath);
+            //var_dump($result);
+            if($result) {
+                echo "Usuário cadastrado com sucesso!";
+            } else {
+               echo "Usuário não cadastrado. Tente novamente";
+            }
+        }
         
 
 
