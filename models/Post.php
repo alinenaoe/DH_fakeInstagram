@@ -1,19 +1,21 @@
 <?php
 
-    include_once 'Conexao.php';
+    include_once 'Connection.php';
 
-    class Post extends Conexao {
+    class Post extends Connection {
 
         //parent para informar que a função é do 'pai' - o método é protegido
-        public function criarPost($imagem, $descricao) {
-            $db = parent::criarConexao();
-            $query = $db->prepare("INSERT INTO posts (img, descricao) values(?,?) ");
-            $resultado = $query->execute([$imagem, $descricao]);
-            return $resultado;
+        public function createPost($img, $postText) {
+            $db = parent::createConnection();
+            $query = $db->prepare("INSERT INTO posts (img, postText) values(?,?) ");
+            //dúvida: por que esse formato do execute? não lembro!
+            $result = $query->execute([$img, $postText]);
+            return $result;
         }
 
-        public function listarPosts () {
-            $db = parent::criarConexao();
+        public function listPosts () {
+            $db = parent::createConnection();
+            //aqui não precisa do prepare?
             //para mostrar do mais recente para o mais antigo, select com id DESC
             $query = $db->query('SELECT * FROM posts order by id DESC');
             $resultado = $query->fetchAll(PDO::FETCH_OBJ);

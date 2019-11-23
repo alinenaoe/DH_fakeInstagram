@@ -10,17 +10,17 @@
 </head>
 <body>
     
-    <?php include "views/includes/header.php"; ?>
+    <?php include "includes/header.php"; ?>
     <main class="board">
         <h1> Cadastro de novo Post </h1>
-        <form action="/DH_instagramMVC/cadastrar-post" method="POST" enctype="multipart/form-data">
+        <form action="/DH_fakeInstagram/send-post" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="exampleFormControlFile1">Example file input</label>
-                <input type="file" class="form-control-file" name="img" id="exampleFormControlFile1">
+                <input type="file" class="form-control-file" name="img" id="exampleFormControlFile1" required>
             </div>
             <div class="form-group">
-                <label for="descricao">Descrição</label>
-                <input type="text" class="form-control" id="descricao" name="descricao" placeholder="Insira uma descrição">
+                <label for="postText">Descrição</label>
+                <input type="text" class="form-control" id="postText" name="postText" placeholder="Insira uma descrição" required>
             </div>
             <button type="submit" class="btn btn-success">Postar</button>
         </form>

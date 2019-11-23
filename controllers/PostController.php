@@ -4,54 +4,66 @@
 
     class PostController {
         
-        public function acao($rotas) {
-            switch($rotas) {
+        public function acao($routes) {
+            switch($routes) {
                 case "posts":
-                    $this->listarPosts();
+                    $this->listPosts();
                 break;
 
-                case "formulario-post":
-                    $this->viewFormularioPost();
+                case "new-post":
+                    $this->viewNewPost();
                 break;
 
-                case "cadastrar-post":
-                    $this->cadastroPost();
+                case "send-post":
+                    $this->sendPost();
 
+                case "new-user":
+                    $this->viewNewUser();
             }
         }
 
-        private function viewFormularioPost() {
+        private function viewNewPost() {
             include "views/newPost.php";
         }
+
 
         private function viewPosts() {
             include "views/posts.php";
         }
 
-        private function cadastroPost() {
-            $descricao = $_POST['descricao'];
 
-            $nomeArquivo = $_FILES["img"]["name"];
-            $linkTemp = $_FILES["img"]["tmp_name"];
-            $caminhoSalvar = "views/img/$nomeArquivo";
-            move_uploaded_file($linkTemp,$caminhoSalvar);
+        private function sendPost() {
+            $postText = $_POST['postText'];
+
+            $fileName = $_FILES["img"]["name"];
+            $tempLink = $_FILES["img"]["tmp_name"];
+            $filePath = "views/img/$fileName";
+            move_uploaded_file($tempLink,$filePath);
 
             $post = new Post();
-            $resultado = $post->criarPost($caminhoSalvar,$descricao);
-            var_dump($resultado);
-            if($resultado) {
-                header('Location:/DH_instagramMVC/posts');
+            $result = $post->createPost($filePath,$postText);
+            var_dump($result);
+            if($result) {
+                header('Location:/DH_fakeInstagram/posts');
             } else {
                 // header('Location:/DH_instagramMVC/posts');
-               echo "não deu";
+               echo "Seu post não foi cadastrado. Tente novamente";
             }
         }
-        
-        private function listarPosts() {
+
+        private function listPosts() {
             $post = new Post;
-            $listaPosts = $post->listarPosts();
-            $_REQUEST['posts'] = $listaPosts;
+            $listPosts = $post->listPosts();
+            $_REQUEST['posts'] = $listPosts;
             $this->viewPosts();
         }
+
+        private function viewNewUser() {
+            include "views/newUser.php";
+        }
+
+
+        
+
 
     }

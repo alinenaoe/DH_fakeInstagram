@@ -1,10 +1,6 @@
 <?php
-
     $posts = $_REQUEST['posts'];
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,27 +8,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>fakeInstagram</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="views/css/styles.css">
 </head>
 <body>
     
-    <?php include "views/includes/header.php"; ?>
+    <?php include "includes/header.php"; ?>
     <main class="board">
 
         <?php foreach ($posts as $post): ?>
         <div class="card mt-5">
             <img id="cardimg" src="<?php echo $post->img; ?>" alt="Card image cap">
             <div class="card-body">
-                <p class="card-text"><?php echo $post->descricao;?></p>
+                <p class="card-text"><?php echo $post->postText;?></p>
             </div>
         </div>
         <?php endforeach; ?>
-        <a class="float-button" href="/DH_instagramMVC/formulario-post">&#10010;</a>
+        <a class="float-button" href="/DH_fakeInstagram/new-post">&#10010;</a>
     </main>
     
-
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -1,23 +1,29 @@
 <?php
 
-    $rotas = key($_GET)?key($_GET):"posts";
+    $routes = key($_GET)?key($_GET):"posts";
 
-    switch ($rotas) {
+    switch ($routes) {
         case "posts":
             include "controllers/PostController.php";
             $controller = new PostController();
-            $controller->acao($rotas);
+            $controller->acao($routes);
         break;
 
-        case "formulario-post":
+        case "new-post":
             include "controllers/PostController.php";
             $controller = new PostController();
-            $controller->acao($rotas);
+            $controller->acao($routes);
         break;
 
-        case "cadastrar-post":
+        case "send-post":
             include "controllers/PostController.php";
             $controller = new PostController();
-            $controller->acao($rotas);
+            $controller->acao($routes);
+        break;
+
+        case "new-user":
+            include "controllers/PostController.php";
+            $controller = new PostController();
+            $controller->acao($routes);
         break;
     }
