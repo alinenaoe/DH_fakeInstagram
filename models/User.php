@@ -4,10 +4,10 @@
 
     class User extends Connection {
 
-        public function registerUser($username, $userpassword, $profileimg) {
+        public function registerUser($username, $useremail, $userpassword, $profileimg) {
             $db = parent::createConnection();
-            $query = $db->prepare("INSERT INTO users (username, userpassword, profileimg) values(?,?,?) ");
-            $result = $query->execute([$username, password_hash($userpassword,PASSWORD_BCRYPT), $profileimg]);
+            $query = $db->prepare("INSERT INTO users (username, useremail, userpassword, profileimg) values(?,?,?,?) ");
+            $result = $query->execute([$username, $useremail, password_hash($userpassword,PASSWORD_BCRYPT), $profileimg]);
             return $result;
         }
 

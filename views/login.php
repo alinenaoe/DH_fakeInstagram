@@ -25,6 +25,13 @@
             <div class="card-body">
             <h1 class="text-center instagram">Fake Instagram</h1>
             <form action="/DH_fakeInstagram/check-user"" method="POST">
+                <p class="text-center">
+                    <?php if(isset($_SESSION['registered'])) {
+                        echo $_SESSION['registered'];
+                        unset($_SESSION['registered']);
+                    }
+                    ?>
+                </p>
 
                 <div class="form-group mt-5">
                     <input type="text" class="form-control bg-light" id="username" name="username" placeholder="Nome de usuário" required>

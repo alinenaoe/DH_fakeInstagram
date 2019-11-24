@@ -80,6 +80,7 @@
         private function registerUser() {
             $username = $_POST['username'];
             $userpassword = $_POST['userpassword'];
+            $useremail = $_POST['useremail'];
 
             $fileName = $_FILES["profileimg"]["name"];
             $tempLink = $_FILES["profileimg"]["tmp_name"];
@@ -87,10 +88,12 @@
             move_uploaded_file($tempLink,$filePath);
 
             $user = new User();
-            $result = $user->registerUser($username, $userpassword, $filePath);
+            $result = $user->registerUser($username, $useremail, $userpassword, $filePath);
             //var_dump($result);
             if($result) {
-                echo "Usuário cadastrado com sucesso!";
+                //echo "Usuário cadastrado com sucesso!";
+                $_SESSION['registered'] = "Usuário cadastrado com sucesso! Entre na sua conta";
+                include "views/login.php";
             } else {
                echo "Usuário não cadastrado. Tente novamente";
             }
@@ -107,25 +110,19 @@
             $users = $login->listUsers();
             $_REQUEST['users'] = $users;
 
-            if(isset($_POST['username']) && isset($_POST['userpassword'])) {
-                foreach ($users as $user) {
-                    if ($_POST['username'] == $user['username'] && password_verify($_POST['userpassword'],$user['userpassword'])) {
-                        $_SESSION['username'] = $user['username'];
-                        header('Location:/DH_fakeInstagram/posts');
-                    } else {
-                        $_SESSION['loginError'] = "Usuário ou senha incorretos";  
-                        include "views/login.php";
-                        break;
-                    }
+            foreach ($users as $user) {
+                if ($_POST['username'] == $user['username'] && password_verify($_POST['userpassword'],$user['userpassword'])) {
+                    $_SESSION['username'] = $user['username'];
+                    header('Location:/DH_fakeInstagram/posts');
+                break;
+                } else {
+                    $_SESSION['loginError'] = "Usuário ou senha incorretos";  
+                    header('Location:/DH_fakeInstagram/login');
+                    break;
                 }
-            } else {
-              $_SESSION['loginError'] = "Usuário ou senha incorretos";  
-              include "views/login.php";
-            };
-
-
             }
-
+        } 
+            
     }
 
 
