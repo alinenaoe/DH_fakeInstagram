@@ -32,4 +32,10 @@
             $controller = new PostController();
             $controller->acao($routes);
         break;
+
+        case "login":
+            include "controllers/PostController.php";
+            $controller = new PostController();
+            $controller->acao($routes);
+        break;
     }

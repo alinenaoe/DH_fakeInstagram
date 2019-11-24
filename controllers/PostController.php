@@ -26,6 +26,10 @@
                 case "register-user":
                     $this->registerUser();
                 break;
+
+                case "login":
+                    $this->viewLogin();
+                break;
             }
         }
 
@@ -88,6 +92,9 @@
             }
         }
         
+        private function viewLogin() {
+            include "views/login.php";
+        }
 
 
     }

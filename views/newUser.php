@@ -6,16 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cadastrar novo usuário</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="views/css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+
 </head>
 <body class="bg-light">
     
-    <main class="row justify-content-center">
-        <div class="card col-3 mt-3 ">
+    <main class="row justify-content-center ml-0 mr-0">
+        <div class="card col-4 mt-3 ">
             <div class="card-body">
-            <h1 class="text-center">Instagram</h1>
-            <h5 class="card-title text-center"> Cadastre-se para ver fotos e vídeos dos seus amigos. </h5>
+            <h1 class="text-center instagram">Fake Instagram</h1>
+            <h5 class="card-title text-center text-secondary mt-3 mb-3"> Cadastre-se para ver fotos e vídeos dos seus amigos. </h5>
             <form action="/DH_fakeInstagram/register-user" method="POST" enctype="multipart/form-data">
+
+                <div class="form-group">
+                    <input type="text" class="form-control bg-light" id="useremail" name="useremail" placeholder="E-mail" required>
+                </div>
 
                 <div class="form-group">
                     <input type="text" class="form-control bg-light" id="username" name="username" placeholder="Nome de usuário" required>
@@ -31,7 +37,9 @@
 
                 <button type="submit" class="btn btn-primary w-100">Cadastre-se</button>
 
-                <p class="text-center">Ao se cadastrar, você concorda com nossos Termos, Política de Dados e Política de Cookies.</p>
+                <p class="text-center text-secondary mt-3">Ao se cadastrar, você concorda com nossos Termos, Política de Dados e Política de Cookies.</p>
+
+                <p class="text-center mt-4">Já tem uma conta? <a href="login.php">Conecte-se</a></p>
             </form>
             </div>
         </div>

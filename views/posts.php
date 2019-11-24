@@ -1,5 +1,10 @@
 <?php
     $posts = $_REQUEST['posts'];
+
+    if (!isset($_SESSION)) { 
+        session_start();
+    };
+
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +16,8 @@
     <title>fakeInstagram</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="views/css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+
 </head>
 <body>
     
@@ -18,14 +25,14 @@
     <main class="board">
 
         <?php foreach ($posts as $post): ?>
-        <div class="card mt-5">
+        <div class="card mt-5 mb-3">
             <img id="cardimg" src="<?php echo $post->img; ?>" alt="Card image cap">
             <div class="card-body">
                 <p class="card-text"><?php echo $post->postText;?></p>
             </div>
         </div>
         <?php endforeach; ?>
-        <a class="float-button" href="/DH_fakeInstagram/new-post">&#10010;</a>
+        <a class="float-button" href="/DH_fakeInstagram/new-post"><img src="views/img/newpost.png" width="45" height="45"  alt=""></a>
     </main>
     
 

@@ -1,41 +1,34 @@
-<?php
-    if (!isset($_SESSION)) { 
-            session_start();
-        };
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Entrar</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="views/css/styles.css">
     <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
-
 </head>
-<body>
-    <?php include "includes/header.php"; ?>
-    <main class="row justify-content-center ml-0 mr-0 mt-5">
 
-    <div class="card col-4 p-4 mt-5">
-        <div class="card-body">
-            <h3 class="pb-3">Nova publicação</h3>
-            <form action="/DH_fakeInstagram/send-post" method="POST" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label for="exampleFormControlFile1">Selecione uma imagem</label>
-                    <input type="file" class="form-control-file" name="img" id="exampleFormControlFile1" required>
+<body class="bg-light">
+    
+    <main class="row justify-content-center ml-0 mr-0">
+        <div class="card col-4 mt-3 ">
+            <div class="card-body">
+            <h1 class="text-center instagram">Fake Instagram</h1>
+            <form action="" method="POST">
+
+                <div class="form-group mt-5">
+                    <input type="text" class="form-control bg-light" id="username" name="username" placeholder="Nome de usuário" required>
                 </div>
                 <div class="form-group">
-                    <label for="postText">Descrição</label>
-                    <textarea class="form-control" rows="2" id="postText" name="postText" placeholder="Escreva uma legenda" required></textarea>
+                    <input type="password" class="form-control bg-light" id="userpassword" name="userpassword" placeholder="Senha" required>
                 </div>
-                <button type="submit" class="btn btn-primary w-100">Compartilhar</button>
+                <button type="submit" class="btn btn-primary w-100">Entrar</button>
+                <p class="text-center mt-3"><a href="newUser.php">Ainda não sou cadastrado</a></p>
             </form>
+            </div>
         </div>
-    </div>
 
     </main>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
