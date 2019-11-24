@@ -1,3 +1,11 @@
+<?php
+    //$users = $_REQUEST['users'];
+
+    if (!isset($_SESSION)) { 
+            session_start();
+        };
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +24,7 @@
         <div class="card col-4 mt-3 ">
             <div class="card-body">
             <h1 class="text-center instagram">Fake Instagram</h1>
-            <form action="" method="POST">
+            <form action="/DH_fakeInstagram/check-user"" method="POST">
 
                 <div class="form-group mt-5">
                     <input type="text" class="form-control bg-light" id="username" name="username" placeholder="Nome de usuário" required>
@@ -24,8 +32,15 @@
                 <div class="form-group">
                     <input type="password" class="form-control bg-light" id="userpassword" name="userpassword" placeholder="Senha" required>
                 </div>
+                <p class="text-center text-danger">
+                    <?php if(isset($_SESSION['loginError'])) {
+                        echo $_SESSION['loginError'];
+                        unset($_SESSION['loginError']);
+                    }
+                    ?>
+                </p>
                 <button type="submit" class="btn btn-primary w-100">Entrar</button>
-                <p class="text-center mt-3"><a href="newUser.php">Ainda não sou cadastrado</a></p>
+                <p class="text-center mt-3"><a href="new-user">Ainda não sou cadastrado</a></p>
             </form>
             </div>
         </div>

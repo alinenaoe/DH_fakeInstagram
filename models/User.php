@@ -15,7 +15,7 @@
         public function listUsers() {
             $db = parent::createConnection();
             $query = $db->query('SELECT username,userpassword FROM users');
-            $result = $query->fetchAll(PDO::FETCH_OBJ);
+            $result = $query->fetchAll(PDO::FETCH_ASSOC);
             return $result;
         }
 

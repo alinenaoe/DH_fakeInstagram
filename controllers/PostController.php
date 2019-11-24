@@ -30,6 +30,10 @@
                 case "login":
                     $this->viewLogin();
                 break;
+
+                case "check-user":
+                    $this->checkUser();
+                break;
             }
         }
 
@@ -96,5 +100,32 @@
             include "views/login.php";
         }
 
+        private function checkUser() {
+            session_start();
+
+            $login = new User;
+            $users = $login->listUsers();
+            $_REQUEST['users'] = $users;
+
+            if(isset($_POST['username']) && isset($_POST['userpassword'])) {
+                foreach ($users as $user) {
+                    if ($_POST['username'] == $user['username'] && password_verify($_POST['userpassword'],$user['userpassword'])) {
+                        $_SESSION['username'] = $user['username'];
+                        header('Location:/DH_fakeInstagram/posts');
+                    } else {
+                        $_SESSION['loginError'] = "Usuário ou senha incorretos";  
+                        include "views/login.php";
+                        break;
+                    }
+                }
+            } else {
+              $_SESSION['loginError'] = "Usuário ou senha incorretos";  
+              include "views/login.php";
+            };
+
+
+            }
 
     }
+
+

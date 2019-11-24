@@ -38,4 +38,10 @@
             $controller = new PostController();
             $controller->acao($routes);
         break;
+
+        case "check-user":
+            include "controllers/PostController.php";
+            $controller = new PostController();
+            $controller->acao($routes);
+        break;
     }

@@ -39,9 +39,13 @@ CREATE TABLE users (
 	userpassword varchar(100) not null
 );
  alter table users add profileimg varchar(500) not null;
+ alter table users modify username varchar(100) not null unique;
  
 -- Extraindo dados da tabela `posts`
 select * from posts;
+
+-- Extraindo dados da tabela `users`
+select * from users;
 
 -- Índices para tabelas despejadas
 

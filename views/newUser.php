@@ -39,7 +39,7 @@
 
                 <p class="text-center text-secondary mt-3">Ao se cadastrar, você concorda com nossos Termos, Política de Dados e Política de Cookies.</p>
 
-                <p class="text-center mt-4">Já tem uma conta? <a href="login.php">Conecte-se</a></p>
+                <p class="text-center mt-4">Já tem uma conta? <a href="login">Conecte-se</a></p>
             </form>
             </div>
         </div>

@@ -1,4 +1,5 @@
 <?php
+    //por que esse request?
     $posts = $_REQUEST['posts'];
 
     if (!isset($_SESSION)) { 
