@@ -5,11 +5,11 @@
     class Post extends Connection {
 
         //parent para informar que a função é do 'pai' - o método é protegido
-        public function createPost($img, $postText) {
+        public function createPost($img, $postText, $userid) {
             $db = parent::createConnection();
-            $query = $db->prepare("INSERT INTO posts (img, postText) values(?,?) ");
+            $query = $db->prepare("INSERT INTO posts (img, postText, userid) values(?,?,?) ");
             //dúvida: por que esse formato do execute? não lembro!
-            $result = $query->execute([$img, $postText]);
+            $result = $query->execute([$img, $postText,$userid]);
             return $result;
         }
 
@@ -18,8 +18,8 @@
             //aqui não precisa do prepare?
             //para mostrar do mais recente para o mais antigo, select com id DESC
             $query = $db->query('SELECT * FROM posts order by id DESC');
-            $resultado = $query->fetchAll(PDO::FETCH_OBJ);
-            return $resultado;
+            $result = $query->fetchAll(PDO::FETCH_OBJ);
+            return $result;
         }
 
 

@@ -29,7 +29,10 @@ CREATE TABLE posts (
 	id int(11) primary key auto_increment not null,
     img varchar(500) not null,
     postText varchar (1000) not null
-); ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+); 
+
+insert into posts(user_id) values (6) where posts(id)=1;
+delete from posts where id=5;
 
 -- Estrutura da tabela `users`
 CREATE TABLE users (
@@ -41,11 +44,12 @@ CREATE TABLE users (
  alter table users add profileimg varchar(500) not null;
  alter table users modify username varchar(100) not null unique;
  
+ 
 -- Extraindo dados da tabela `posts`
 select * from posts;
 
 -- Extraindo dados da tabela `users`
-select * from users;
+select * from users;	
 
 -- Índices para tabelas despejadas
 

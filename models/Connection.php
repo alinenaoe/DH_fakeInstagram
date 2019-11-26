@@ -1,7 +1,7 @@
 <?php
 
     class Connection {
-        private $host = 'mysql:host=localhost;dbname=instagram;port=3306';
+        private $host = 'mysql:host=localhost;dbname=fakeInstagram;port=3306';
         private $user = 'root';
         private $pass = '';
 

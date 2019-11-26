@@ -22,26 +22,26 @@
         break;
 
         case "new-user":
-            include "controllers/PostController.php";
-            $controller = new PostController();
+            include "controllers/UserController.php";
+            $controller = new UserController();
             $controller->acao($routes);
         break;
 
         case "register-user":
-            include "controllers/PostController.php";
-            $controller = new PostController();
+            include "controllers/UserController.php";
+            $controller = new UserController();
             $controller->acao($routes);
         break;
 
         case "login":
-            include "controllers/PostController.php";
-            $controller = new PostController();
+            include "controllers/UserController.php";
+            $controller = new UserController();
             $controller->acao($routes);
         break;
 
         case "check-user":
-            include "controllers/PostController.php";
-            $controller = new PostController();
+            include "controllers/UserController.php";
+            $controller = new UserController();
             $controller->acao($routes);
         break;
     }

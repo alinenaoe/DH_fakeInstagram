@@ -24,7 +24,7 @@
         <div class="card col-4 mt-3 ">
             <div class="card-body">
             <h1 class="text-center instagram">Fake Instagram</h1>
-            <form action="/DH_fakeInstagram/check-user"" method="POST">
+            <form action="/DH_fakeInstagram/check-user" method="POST">
                 <p class="text-center">
                     <?php if(isset($_SESSION['registered'])) {
                         echo $_SESSION['registered'];
