@@ -31,8 +31,10 @@
 
 
         private function sendPost() {
+            session_start();
+            
             $postText = $_POST['postText'];
-            $userid = $_SESSION['userid'];
+            $username = $_SESSION['username'];
 
             $fileName = $_FILES["img"]["name"];
             $tempLink = $_FILES["img"]["tmp_name"];
@@ -40,8 +42,8 @@
             move_uploaded_file($tempLink,$filePath);
 
             $post = new Post();
-            $result = $post->createPost($filePath,$postText,$userid);
-            var_dump($result);
+            $result = $post->createPost($filePath,$postText,$username);
+            //var_dump($result);
             if($result) {
                 header('Location:/DH_fakeInstagram/posts');
             } else {

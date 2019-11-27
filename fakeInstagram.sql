@@ -1,11 +1,14 @@
+create database fakeInstagram;
+use fakeInstagram;
+
 CREATE TABLE posts (
 	id int(11) primary key auto_increment not null,
     img varchar(500) not null,
     postText varchar (1000) not null,
-    userid int
+    users_username varchar(100)
 ); 
 
-alter table posts add foreign key (userid) references users(id);
+alter table posts add foreign key (users_username) references users(username);
 
 
 CREATE TABLE users (

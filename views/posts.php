@@ -29,7 +29,7 @@
         <div class="card mt-5 mb-3">
             <img id="cardimg" src="<?php echo $post->img; ?>" alt="Card image cap">
             <div class="card-body d-flex">
-                <p class="font-weight-bold card-text mr-2"><?php echo $post->userid?></p>
+                <p class="font-weight-bold card-text mr-2"><?php echo $post->users_username?></p>
                 <p class="card-text"><?php echo $post->postText;?></p>
             </div>
         </div>

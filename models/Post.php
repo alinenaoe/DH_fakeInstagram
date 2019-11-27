@@ -5,11 +5,11 @@
     class Post extends Connection {
 
         //parent para informar que a função é do 'pai' - o método é protegido
-        public function createPost($img, $postText, $userid) {
+        public function createPost($img, $postText, $username) {
             $db = parent::createConnection();
-            $query = $db->prepare("INSERT INTO posts (img, postText, userid) values(?,?,?) ");
+            $query = $db->prepare("INSERT INTO posts (img, postText, users_username) values(?,?,?) ");
             //dúvida: por que esse formato do execute? não lembro!
-            $result = $query->execute([$img, $postText,$userid]);
+            $result = $query->execute([$img, $postText, $username]);
             return $result;
         }
 

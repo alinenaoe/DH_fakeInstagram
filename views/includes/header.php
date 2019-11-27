@@ -7,8 +7,8 @@
                     </a>
                 </div>
                 <div class="col-6 text-right pt-2">
-                    <a><?php echo $_SESSION['username']?></a>
-                    <img src="views/img/user.png" width="25" height="25" alt="">
+                    <a href="/DH_fakeInstagram/login" class="mr-2">Entrar com outra conta</a>|
+                    <a href="/DH_fakeInstagram/logout" class="ml-2">Sair</a>                                
                 </div>
             </div>
         </div>

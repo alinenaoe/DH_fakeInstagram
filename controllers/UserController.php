@@ -20,6 +20,10 @@
                 case "logUser":
                     $this->logUser();
                 break;
+
+                case "logout":
+                    $this->logout();
+                break;
             }
         }
 
@@ -69,16 +73,19 @@
             
             if($userpassword) {
                 $_SESSION['username'] = $username;
-                $_SESSION['userid'] = $userOk[0]['id'];
                 //var_dump($_SESSION['userid']);
                 header('Location:/DH_fakeInstagram/posts');
             } else {
                 $_SESSION['loginError'] = "Usuário ou senha incorretos";  
                 header('Location:/DH_fakeInstagram/login');
-            }
- 
-            
+            }            
         }   
+
+        private function logout() {
+            session_start();
+            session_destroy();
+            header('Location:login');
+        }
     }
 
 

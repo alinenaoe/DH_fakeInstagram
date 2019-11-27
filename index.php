@@ -1,6 +1,6 @@
 <?php
 
-    $routes = key($_GET)?key($_GET):"posts";
+    $routes = key($_GET)?key($_GET):"login";
 
     switch ($routes) {
         case "posts":
@@ -40,6 +40,12 @@
         break;
 
         case "logUser":
+            include "controllers/UserController.php";
+            $controller = new UserController();
+            $controller->acao($routes);
+        break;
+
+        case "logout":
             include "controllers/UserController.php";
             $controller = new UserController();
             $controller->acao($routes);
