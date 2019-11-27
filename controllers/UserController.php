@@ -17,8 +17,8 @@
                     $this->viewLogin();
                 break;
 
-                case "check-user":
-                    $this->checkUser();
+                case "logUser":
+                    $this->logUser();
                 break;
             }
         }
@@ -54,29 +54,30 @@
         }
 
 
-        private function checkUser() {
+        private function logUser() {
             session_start();
 
-            $login = new User;
-            //guarda na variável $login a lista de usuários do banco de dados
-            $users = $login->listUsers();
-            //guarda na global Request a lista de usuários
-            $_REQUEST['users'] = $users;
-            //var_dump($users);
+            $username = $_POST['username']; 
+            $user = new User;
+            //cria objeto com a classe User para poder usar seu método checkUser
 
-            foreach ($users as $user) {
-                //var_dump($user->username);
-                if ($_POST['username'] == $user->username && password_verify($_POST['userpassword'],$user->userpassword)) {
-                    $_SESSION['username'] = $user->username;
-                    $_SESSION['userid'] = $user->id;
-                    //var_dump($_SESSION['userid']);
-                    header('Location:/DH_fakeInstagram/posts');
-                    break;
-                } else {
-                    $_SESSION['loginError'] = "Usuário ou senha incorretos";  
-                    header('Location:/DH_fakeInstagram/login');
-                }
+            $userOk = $user->checkUser($username);
+            //guarda na variável $userOk o retorno da função de checar se há o usuário digitado
+            
+            $userpassword = password_verify($_POST['userpassword'], $userOk[0]['userpassword']);       
+            //guarda em $userpassword o resultado true ou false se a verificação da senha está ok
+            
+            if($userpassword) {
+                $_SESSION['username'] = $username;
+                $_SESSION['userid'] = $userOk[0]['id'];
+                //var_dump($_SESSION['userid']);
+                header('Location:/DH_fakeInstagram/posts');
+            } else {
+                $_SESSION['loginError'] = "Usuário ou senha incorretos";  
+                header('Location:/DH_fakeInstagram/login');
             }
+ 
+            
         }   
     }
 

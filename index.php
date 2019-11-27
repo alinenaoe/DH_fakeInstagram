@@ -39,7 +39,7 @@
             $controller->acao($routes);
         break;
 
-        case "check-user":
+        case "logUser":
             include "controllers/UserController.php";
             $controller = new UserController();
             $controller->acao($routes);
