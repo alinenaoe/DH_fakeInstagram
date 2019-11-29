@@ -7,8 +7,15 @@
                     </a>
                 </div>
                 <div class="col-6 text-right pt-2">
-                    <a href="/DH_fakeInstagram/login" class="mr-2">Entrar com outra conta</a>|
-                    <a href="/DH_fakeInstagram/logout" class="ml-2">Sair</a>                                
+                    <?php if(empty($_SESSION['username'])) { ?>
+                        <a href="/DH_fakeInstagram/new-user" class="mr-2">Cadastre-se</a>|  
+                        <a href="/DH_fakeInstagram/login" class="ml-2">Login</a> 
+                    <?php } else { ?>
+                        <img src="views/img/user.jpg" width="25">    
+                        <a class="mr-2"><?php echo $_SESSION['username']?></a>|                          
+                        <a href="/DH_fakeInstagram/logout" class="ml-2">Sair</a>    
+                    <?php } ?>    
+
                 </div>
             </div>
         </div>

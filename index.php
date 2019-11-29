@@ -1,6 +1,16 @@
 <?php
 
-    $routes = key($_GET)?key($_GET):"login";
+    $routes = key($_GET)?key($_GET):"posts";
+
+    //dúvida: como estabelecer que a rota só vai para post se o usuário estiver logado? O código abaixo não funcionou
+    // if(key($_GET)) {
+    //     $routes = key($_GET);
+    // } elseif (isset($_SESSION['username'])) {
+    //     $routes="posts";
+    // } else {
+    //     $routes="login";
+    // }   
+
 
     switch ($routes) {
         case "posts":
@@ -34,19 +44,19 @@
         break;
 
         case "login":
-            include "controllers/UserController.php";
+            include "controllers/LoginController.php";
             $controller = new UserController();
             $controller->acao($routes);
         break;
 
         case "logUser":
-            include "controllers/UserController.php";
+            include "controllers/LoginController.php";
             $controller = new UserController();
             $controller->acao($routes);
         break;
 
         case "logout":
-            include "controllers/UserController.php";
+            include "controllers/LoginController.php";
             $controller = new UserController();
             $controller->acao($routes);
         break;

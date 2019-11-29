@@ -32,6 +32,13 @@ header {
     width: 50%;
     margin: 0 auto;
     margin-top: 120px;
+    position: relative;
+}
+
+.perfil {
+    position: absolute;
+    right: 100%;
+    top: 0;
 }
 
 .float-button{

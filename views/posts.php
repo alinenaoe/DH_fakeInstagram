@@ -29,14 +29,20 @@
         <div class="card mt-5 mb-3">
             <img id="cardimg" src="<?php echo $post->img; ?>" alt="Card image cap">
             <div class="card-body d-flex">
+                <img src="views/img/heart.svg" class="mr-2">                
+                <p class="card-text">Curtir</p>
+            </div>
+            <div class="card-body d-flex">
                 <p class="font-weight-bold card-text mr-2"><?php echo $post->users_username?></p>
                 <p class="card-text"><?php echo $post->postText;?></p>
             </div>
         </div>
         <?php endforeach; ?>
         <a class="float-button" href="/DH_fakeInstagram/new-post"><img src="views/img/newpost.png" width="45" height="45"  alt=""></a>
+
     </main>
     
+
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

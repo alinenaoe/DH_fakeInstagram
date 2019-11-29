@@ -20,7 +20,7 @@
             <form action="/DH_fakeInstagram/register-user" method="POST" enctype="multipart/form-data">
 
                 <div class="form-group">
-                    <input type="text" class="form-control bg-light" id="useremail" name="useremail" placeholder="E-mail" required>
+                    <input type="email" class="form-control bg-light" id="useremail" name="useremail" placeholder="E-mail" required>
                 </div>
 
                 <div class="form-group">
