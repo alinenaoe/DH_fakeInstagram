@@ -13,35 +13,47 @@
 <body class="bg-light">
     
     <main class="row justify-content-center ml-0 mr-0">
-        <div class="card col-4 mt-3 ">
-            <div class="card-body">
-            <h1 class="text-center instagram">Fake Instagram</h1>
-            <h5 class="card-title text-center text-secondary mt-3 mb-3"> Cadastre-se para ver fotos e vídeos dos seus amigos. </h5>
-            <form action="/DH_fakeInstagram/register-user" method="POST" enctype="multipart/form-data">
 
-                <div class="form-group">
-                    <input type="email" class="form-control bg-light" id="useremail" name="useremail" placeholder="E-mail" required>
+        <div class="col-4 mt-3">
+            <img src="views/img/homeInstagram.jpg" alt="">
+
+        </div>
+
+
+        <div class="col-4 mt-3 ">
+            <div class="card ">
+                <div class="card-body">
+                    <h1 class="text-center instagram">Fake Instagram</h1>
+                    <h5 class="card-title text-center text-secondary mt-3 mb-3"> Cadastre-se para ver fotos e vídeos dos seus amigos. </h5>
+                    <form action="/DH_fakeInstagram/register-user" method="POST" enctype="multipart/form-data">
+
+                        <div class="form-group">
+                            <input type="email" class="form-control bg-light" id="useremail" name="useremail" placeholder="E-mail" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control bg-light" id="username" name="username" placeholder="Nome de usuário" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control bg-light" id="userpassword" name="userpassword" placeholder="Senha" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleFormControlFile1">Selecione uma foto para o seu perfil</label>
+                            <input type="file" class="form-control-file" name="profileimg" id="exampleFormControlFile1" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Cadastre-se</button>
+
+                        <p class="text-center text-secondary mt-3">Ao se cadastrar, você concorda com nossos Termos, Política de Dados e Política de Cookies.</p>
+                    </form>
                 </div>
-
-                <div class="form-group">
-                    <input type="text" class="form-control bg-light" id="username" name="username" placeholder="Nome de usuário" required>
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control bg-light" id="userpassword" name="userpassword" placeholder="Senha" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="exampleFormControlFile1">Selecione uma foto para o seu perfil</label>
-                    <input type="file" class="form-control-file" name="profileimg" id="exampleFormControlFile1" required>
-                </div>
-
-                <button type="submit" class="btn btn-primary w-100">Cadastre-se</button>
-
-                <p class="text-center text-secondary mt-3">Ao se cadastrar, você concorda com nossos Termos, Política de Dados e Política de Cookies.</p>
-
-                <p class="text-center mt-4">Já tem uma conta? <a href="login">Conecte-se</a></p>
-            </form>
             </div>
+
+            <div class="card mt-2">
+                <p class="text-center pt-3">Já tem uma conta? <a href="login">Conecte-se</a></p>
+            </div>
+
         </div>
 
     </main>

@@ -21,35 +21,42 @@
 <body class="bg-light">
     
     <main class="row justify-content-center ml-0 mr-0">
-        <div class="card col-4 mt-3 ">
-            <div class="card-body">
-            <h1 class="text-center instagram">Fake Instagram</h1>
-            <form action="/DH_fakeInstagram/logUser" method="POST">
-                <p class="text-center">
-                    <?php if(isset($_SESSION['registered'])) {
-                        echo $_SESSION['registered'];
-                        unset($_SESSION['registered']);
-                    }
-                    ?>
-                </p>
+        <div class="col-4 mt-3 ">
+            <div class="card">
+                <div class="card-body">
+                    <h1 class="text-center instagram">Fake Instagram</h1>
+                    <form action="/DH_fakeInstagram/logUser" method="POST">
+                        <p class="text-center">
+                            <?php if(isset($_SESSION['registered'])) {
+                                echo $_SESSION['registered'];
+                                unset($_SESSION['registered']);                        
+                            }
+                            ?>
+                        </p>
 
-                <div class="form-group mt-5">
-                    <input type="text" class="form-control bg-light" id="username" name="username" placeholder="Nome de usuário" required>
+                        <div class="form-group mt-5">
+                            <input type="text" class="form-control bg-light" id="username" name="username" placeholder="Nome de usuário" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control bg-light" id="userpassword" name="userpassword" placeholder="Senha" required>
+                        </div>
+                        <p class="text-center text-danger">
+                            <?php if(isset($_SESSION['loginError'])) {
+                                echo $_SESSION['loginError'];
+                                unset($_SESSION['loginError']);
+                            }
+                            ?>
+                        </p>
+                        <button type="submit" class="btn btn-primary w-100">Entrar</button>
+
+                    </form>
                 </div>
-                <div class="form-group">
-                    <input type="password" class="form-control bg-light" id="userpassword" name="userpassword" placeholder="Senha" required>
-                </div>
-                <p class="text-center text-danger">
-                    <?php if(isset($_SESSION['loginError'])) {
-                        echo $_SESSION['loginError'];
-                        unset($_SESSION['loginError']);
-                    }
-                    ?>
-                </p>
-                <button type="submit" class="btn btn-primary w-100">Entrar</button>
-                <p class="text-center mt-3"><a href="new-user">Ainda não sou cadastrado</a></p>
-            </form>
             </div>
+            
+            <div class="card mt-2">
+                    <p class="text-center mt-3">Não tem uma conta? <a href="new-user">Cadastre-se</a></p>
+            </div>
+
         </div>
 
     </main>

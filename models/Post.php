@@ -22,5 +22,12 @@
             return $result;
         }
 
+        public function likePost ($likes,$postId) {
+            $db = parent::createConnection();
+            $query = $db->prepare("UPDATE posts SET likes = ? + 1 WHERE id= ?");
+            $result = $query->execute([$likes,$postId]);
+            return $result;
+        }
+
 
     }

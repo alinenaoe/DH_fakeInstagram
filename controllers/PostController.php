@@ -17,6 +17,10 @@
                 case "send-post":
                     $this->sendPost();
                 break;
+
+                case "like":
+                    $this->likePost();
+                break;
             }
         }
 
@@ -31,7 +35,7 @@
 
 
         private function sendPost() {
-            session_start();
+            session_start();        
             
             $postText = $_POST['postText'];
             $username = $_SESSION['username'];
@@ -58,8 +62,18 @@
             $_REQUEST['posts'] = $listPosts;
             $this->viewPosts();
         }
-
+        
+        private function likePost() {
+            session_start();
+            $post = new Post;
+            $likes = $_SESSION['likes'];
+            $postId = $_SESSION['id'];
+            $result = $post->likePost($likes,$postId);
+            if($result) {
+                echo $_SESSION['id'];
+                echo $_SESSION['likes'];
+                header("Location:posts#$postId");
+            }
+        }
 
     }
-
-

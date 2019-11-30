@@ -1,4 +1,4 @@
-# DH_fakeInstagram
+# Fake Instagram
 Exercício com POO e MVC para criar sistema semelhante ao Instagram
 
 Funcionalidades
