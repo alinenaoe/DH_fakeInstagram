@@ -33,8 +33,9 @@
             $result = $user->registerUser($username, $useremail, $userpassword, $filePath);
 
             if($result) {
-                $_SESSION['registered'] = "Usuário cadastrado com sucesso! Entre na sua conta";
-                include "views/login.php";
+                //$_SESSION['registered'] = "Usuário cadastrado com sucesso! Entre na sua conta";
+                $_SESSION['username'] = $username;
+                include "views/posts.php";
             } else {
                echo "Usuário não cadastrado. Tente novamente";
             }

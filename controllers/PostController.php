@@ -25,7 +25,14 @@
         }
 
         private function viewNewPost() {
-            include "views/newPost.php";
+            session_start();
+            if(isset($_SESSION['username'])) {
+                include "views/newPost.php";
+            } else {
+                $_SESSION['notLogged'] = "Faça login para poder criar novas publicações";
+                include "views/login.php";
+            }
+            
         }
 
 
@@ -70,8 +77,8 @@
             $postId = $_SESSION['id'];
             $result = $post->likePost($likes,$postId);
             if($result) {
-                echo $_SESSION['id'];
-                echo $_SESSION['likes'];
+                session_unset('likes');
+                session_unset('id');
                 header("Location:posts#$postId");
             }
         }

@@ -26,10 +26,13 @@
                 <div class="card-body">
                     <h1 class="text-center instagram">Fake Instagram</h1>
                     <form action="/DH_fakeInstagram/logUser" method="POST">
-                        <p class="text-center">
+                        <p class="text-center text-warning">
                             <?php if(isset($_SESSION['registered'])) {
                                 echo $_SESSION['registered'];
                                 unset($_SESSION['registered']);                        
+                            } elseif (isset($_SESSION['notLogged'])) {
+                                echo $_SESSION['notLogged'];
+                                unset($_SESSION['notLogged']);                        
                             }
                             ?>
                         </p>
