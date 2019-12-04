@@ -71,14 +71,11 @@
         }
         
         private function likePost() {
-            session_start();
             $post = new Post;
-            $likes = $_SESSION['likes'];
-            $postId = $_SESSION['id'];
+            $likes = $_POST['likes'];
+            $postId = $_POST['postId'];
             $result = $post->likePost($likes,$postId);
             if($result) {
-                session_unset('likes');
-                session_unset('id');
                 header("Location:posts#$postId");
             }
         }

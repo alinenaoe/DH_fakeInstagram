@@ -68,3 +68,9 @@ header {
 .postar:hover {
     font-weight: bold;
 }
+
+#like {
+    padding: 0;
+    border: none;
+    background-color: #fff;
+}

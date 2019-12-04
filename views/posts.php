@@ -31,16 +31,13 @@
             foreach ($posts as $post) { ?>
 
                 <div class="card mt-5 mb-3" id="<?php echo $post->id;?>">
-                    <form action="like" method="POST">          
-                        <input type="hidden" value="
-                            <?php session_start();
-                            $_SESSION['id'] = $post->id ;
-                            $_SESSION['likes'] = $post->likes;
-                            ?>" >
-                        <img id="cardimg" src="<?php echo $post->img; ?>" alt="Card image cap">
-                    
+                    <form action="like" method="POST">      
+                        <img id="cardimg" src="<?php echo $post->img; ?>" alt="Card image cap">                  
+                        <input type="text" name="likes" value="<?php echo $post->likes ?>" hidden>
+                        <input type="text" name="postId" value="<?php echo $post->id ?>" hidden>
+
                         <div class="card-body d-flex">
-                            <a href="like" class=""><img src="views/img/heart.svg" class="mr-2"></a>              
+                            <button class="submit" id="like"><img src="views/img/heart.svg" class="mr-2"></button>              
                             <?php if ($post->likes==0) { ?>
                                 <p class="card-text mb-0">
                                     <?php echo "Curtir"; ?>
